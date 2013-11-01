@@ -1,0 +1,11 @@
+{
+  "name" : "grid",
+  "dependencies": {
+    "jquery": "~1",
+    "requirejs": "~2.1.6",
+    "backbone": "~1.0.0",
+    "underscore": "~1.4.4",
+    "bootstrap": "3",
+    "jquery.tablesorter": "~2.10.8"
+  }
+}
