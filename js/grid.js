@@ -89,9 +89,12 @@ define([
 
 			_.each(tableRows, function(row) {
 				var model = that.collection.get(row.id);
-				_.each($(row).children('td'), function(td, idx){
-					callback($(td),_.keys(that.params.tableHeaders)[idx], model.toJSON());
-				})
+
+				if(model != undefined) {
+					_.each($(row).children('td'), function(td, idx){
+						callback($(td),_.keys(that.params.tableHeaders)[idx], model.toJSON());
+					});
+				}
 			});
 		},
 

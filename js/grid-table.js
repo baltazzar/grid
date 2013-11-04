@@ -64,7 +64,7 @@ define([
 
 		setTableBody: function() {
 			var tableBody = this.$el.children('.grid-table-body'),
-				fields;
+				fields = [];
 
 			if(this.params.tableHeaders) {
 				fields = _.keys(this.params.tableHeaders);
@@ -94,13 +94,14 @@ define([
 					});
 
 					_.each(white_list, function(field) {
+						field = field || '-';
 						partial.push('<td>' + field + '</td>');
 					});
 
 					tableBody.append('<tr id="' + model.id + '">' + partial.join('') + '</tr>');
 				});
 			} else {
-				tableBody.append('<tr class="text-info"><td colspan="' + fields.length + '"><strong>Sem registros para exibição!</strong></td></tr>');
+				tableBody.append('<tr class="text-info"><td colspan="' + fields.length + '"><strong>Não há registros para exibição</strong></td></tr>');
 			}
 		},
 
