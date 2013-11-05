@@ -1,8 +1,12 @@
 /*
 *	Módulo Grid
-*	Versão: 1.1.1
+*	Versão: 0.0.3
 *	Dependências: JQuery, Backbone, Underscore, Tablesorter
-*	Autor: Victor Bastos - vbastos@sorocaba.sp.gov.br
+*	Autores: [
+		Victor Bastos - vbastos@sorocaba.sp.gov.br,
+		Thiago Ribeiro - tribeiro@sorocaba.sp.gov.br,
+		Renato Mestre - rmestre@sorocaba.sp.gov.br
+	]
 */
 define('grid-table',[
 	'backbone',
@@ -100,7 +104,11 @@ define('grid-table',[
 					});
 
 					_.each(white_list, function(field) {
-						field = field || '-';
+						if(field !== undefined && field !== null) {
+							field = field;
+						} else {
+							field = '-';
+						}
 						partial.push('<td>' + field + '</td>');
 					});
 

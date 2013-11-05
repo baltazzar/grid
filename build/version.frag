@@ -1,6 +1,10 @@
 /*
 *	Módulo Grid
-*	Versão: 1.1.1
+*	Versão: 0.0.3
 *	Dependências: JQuery, Backbone, Underscore, Tablesorter
-*	Autor: Victor Bastos - vbastos@sorocaba.sp.gov.br
+*	Autores: [
+		Victor Bastos - vbastos@sorocaba.sp.gov.br,
+		Thiago Ribeiro - tribeiro@sorocaba.sp.gov.br,
+		Renato Mestre - rmestre@sorocaba.sp.gov.br
+	]
 */

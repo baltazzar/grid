@@ -94,7 +94,11 @@ define([
 					});
 
 					_.each(white_list, function(field) {
-						field = field || '-';
+						if(field !== undefined && field !== null) {
+							field = field;
+						} else {
+							field = '-';
+						}
 						partial.push('<td>' + field + '</td>');
 					});
 
