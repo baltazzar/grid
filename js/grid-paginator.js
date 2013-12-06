@@ -5,7 +5,7 @@ define([
 		className: 'paginator form-inline pull-right',
 
 		initialize: function() {
-			this.listenTo(this.collection, 'all', this.updatePaginatorEls);
+			this.listenTo(this.collection, 'all', _.debounce(this.updatePaginatorEls, 300));
 		},
 
 		render: function() {

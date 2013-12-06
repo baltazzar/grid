@@ -8,17 +8,25 @@ define([
 		className: 'grid-table',
 		eventHandlers: [],
 		lastColOptions: {},
+		getRowsCallback: null,
+		getColsCallback: null,
 
 		initialize: function(params) {
 			this.params = params;
 
-			this.listenTo(this.collection, 'all', function() {
+			this.listenTo(this.collection, 'all', _.debounce(function() {
 				this.render();
 				if(!_.isEmpty(this.lastColOptions)) {
 					this.setLastCol(this.lastColOptions);
 				}
+				if(this.getRowsCallback) {
+					this.getRows(this.getRowsCallback);
+				}
+				if(this.getColsCallback) {
+					this.getCols(this.getColsCallback);
+				}
 				this.setEventHandlers();
-			});
+			}), 300);
 		},
 
 		render: function() {
@@ -80,8 +88,9 @@ define([
 
 				callback($(row), model.toJSON());
 			});
-		},
 
+			this.getRowsCallback = callback;
+		},
 
 		getCols: function(callback) {
 			var tableRows = this.$el.children('table').children('tbody').children('tr'),
@@ -96,6 +105,8 @@ define([
 					});
 				}
 			});
+
+			this.getColsCallback = callback;
 		},
 
 		initPaginator: function(element) {
